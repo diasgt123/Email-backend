@@ -6,13 +6,17 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-# Configurations for the email (change as per your setup)
+# Configurations for the email
 EMAIL_ADDRESS = 'diasgeorgethomas@gmail.com'  # Replace with your email
-EMAIL_PASSWORD = 'gcnd usfk mbfz ostt'
+EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')  # Load password from environment variable
 
 @app.route('/send-email', methods=['POST'])
 def send_email():
