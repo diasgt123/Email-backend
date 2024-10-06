@@ -15,8 +15,8 @@ app = Flask(__name__)
 CORS(app)
 
 
-EMAIL_ADDRESS = 'diasgeorgethomas@gmail.com'  # Replace with your email
-EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')  # Load password from environment variable
+EMAIL_ADDRESS = 'diasgeorgethomas@gmail.com'  
+EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD') 
 
 @app.route('/send-email', methods=['POST'])
 def send_email():
@@ -29,7 +29,7 @@ def send_email():
 
         msg = MIMEMultipart()
         msg['From'] = EMAIL_ADDRESS
-        msg['To'] = 'renjileon007@gmail.com'  # The owner's email
+        msg['To'] = 'renjileon007@gmail.com'  
         msg['Subject'] = f'Email from {name}'
 
 
